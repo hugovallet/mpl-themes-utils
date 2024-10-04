@@ -48,3 +48,6 @@ Installation
    :target: https://www.python.org/downloads/releaspip install git+ssh://e/python-390
    :alt: Pypi Version
    :scale: 100%
+
+.. |build-status| image:: https://dl.circleci.com/status-badge/img/circleci/5whp41xEFdqUvoAabzFYgU/X4qnr8qPhaLGFAnZirb2xK/tree/main.svg?style=shield
+        :target: https://dl.circleci.com/status-badge/redirect/circleci/5whp41xEFdqUvoAabzFYgU/X4qnr8qPhaLGFAnZirb2xK/tree/main
