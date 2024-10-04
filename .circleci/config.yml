@@ -1,8 +1,10 @@
 # This config was automatically generated from your source code
 # Stacks detected: deps:python:.,file:setup.py:.
 version: 2.1
+
 orbs:
   python: circleci/python@2
+
 jobs:
   test-python:
     # Install dependencies and run tests
@@ -10,13 +12,23 @@ jobs:
       - image: cimg/python:3.8-node
     steps:
       - checkout
-      - python/install-packages:
-          pkg-manager: pip-dist
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "YOURPATH/requirements.txt" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: Install Deps
+          command: pip install -r requirements.txt && pip install -r requirements.dev.txt
       - run:
           name: Run tests
-          command: pytest --junitxml=junit.xml || ((($? == 5)) && echo 'Did not find any tests to run.')
+          command: pytest
       - store_test_results:
           path: junit.xml
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "YOURPATH/requirements.txt" }}
   build-package:
     # build python package
     docker:
