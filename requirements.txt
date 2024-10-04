@@ -1,0 +1,5 @@
+numpy>=1.15
+pandas>=0.23
+matplotlib>=3.3.2
+seaborn>=0.10
+pillow>=6.2.0

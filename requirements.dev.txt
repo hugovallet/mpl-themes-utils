@@ -1,0 +1,10 @@
+jupyter
+jupyter_contrib_nbextensions>=0.5.1
+pre-commit>=2.17.0
+black>=24.0.0
+black[jupyter]
+pytest>=8.1.1
+pytest-cov>=3.0.0
+sphinx
+sphinx_autodoc_typehints
+sphinx_rtd_theme
